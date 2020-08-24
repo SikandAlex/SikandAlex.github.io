@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "BU-COVID19-DASH"
+    }
+  },
+  "defaultProject": "BU-COVID19-DASH",
+  "cli": {
+    "analytics": "07dcd858-f697-4811-b1e4-50b667370e2a"
+  }
 }
