@@ -121,6 +121,10 @@
               "devServerTarget": "BU-COVID19-DASH:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
