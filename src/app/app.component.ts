@@ -18,6 +18,10 @@ export class AppComponent {
 
   public cardData = [];
 
+  public timeData = [];
+
+  public positiveCumulative = [];
+
 
 
   constructor(private _covid: CovidDataService) {}
@@ -31,23 +35,35 @@ export class AppComponent {
       });
     this._covid.getPositive()
       .subscribe(res => {
-        this.positives = res["data"]
+        this.positives = res["data"].slice(Math.max(res["data"].length - 8, 0))
       });
     this._covid.getInvalid()
       .subscribe(res => {
-        this.invalids = res["data"]
+        this.invalids = res["data"].slice(Math.max(res["data"].length - 8, 0))
       });
     this._covid.getNegative()
       .subscribe(res => {
-        this.negatives = res["data"]
+        this.negatives = res["data"].slice(Math.max(res["data"].length - 8, 0))
       });
     this._covid.getMulti()
       .subscribe(res => {
         this.multi = res["data"]
+        this.multi[0]["series"] = this.multi[0]["series"].slice(Math.max(this.multi[0]["series"].length - 8, 0))
+        this.multi[1]["series"] = this.multi[1]["series"].slice(Math.max(this.multi[1]["series"].length - 8, 0))
+        this.multi[2]["series"] = this.multi[2]["series"].slice(Math.max(this.multi[2]["series"].length - 8, 0))
+        this.multi[3]["series"] = this.multi[3]["series"].slice(Math.max(this.multi[3]["series"].length - 8, 0))
       });
     this._covid.getInfectionStatus()
       .subscribe(res => {
         this.cardData = res["data"]
+      });
+    this._covid.getTime()
+      .subscribe(res => {
+        this.timeData = [ {name: "Processing Time", series: res["data"]} ]
+      });
+    this._covid.getPositiveCumulative()
+      .subscribe(res => {
+        this.positiveCumulative = [ {name: "Positive Cases", series: res["data"]} ]
       });
 
   }
@@ -62,7 +78,7 @@ export class AppComponent {
   showXAxis = true;
   showYAxis = true;
   gradient = false;
-  showLegend = true;
+  showLegend = false;
   showXAxisLabel = true;
   xAxisLabel = '';
   showYAxisLabel = true;

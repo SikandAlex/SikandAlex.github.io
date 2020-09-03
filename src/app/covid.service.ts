@@ -40,5 +40,16 @@ export class CovidDataService {
       .pipe(map(result => result));
   }
 
+  getTime() {
+    return this._http.get("https://bu-covid19-api.herokuapp.com/ngx-time")
+      .pipe(map(result => result));
+  }
+
+  getPositiveCumulative() {
+    return this._http.get("http://127.0.0.1:5000/ngx-pos-cum")
+      .pipe(map(result => result));
+  }
+
+
 
 }
