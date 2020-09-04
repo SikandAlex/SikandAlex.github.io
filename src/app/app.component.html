@@ -12,12 +12,24 @@
 <!--The content below is only a placeholder and can be replaced.-->
 
   <h1 class="card-header" style="background-color:#CC0000;font-family:Arial;color:white;width:100%">
-    Boston University COVID-19 Dashboard
+    Under Maintenance
   </h1>
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FCFE7LSCV5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FCFE7LSCV5');
+</script>
+</head>
 
 
 <body style="background-color:#1d3557;">
-  
+
 <section class="container">
   <div class="row widgets">
     <div class="col-md-5" style="text-align:center;">
@@ -85,6 +97,36 @@
       <div class="col-md-5" style="text-align:center;">
           <div class="row.text-center">
             <h4 style="text-align:center;margin-top:50px;margin-bottom:20px">
+              Positive Cases (Cumulative)
+            </h4>
+          </div>
+          <div class="row dark" style="border-radius=25px;border-radius: 15px;border: 2px solid #000000;">
+            <div class="col">
+
+            <div style="min-height:250px">
+                <ngx-charts-line-chart
+                [view]=""
+                [scheme]="colorScheme"
+                [results]="positiveCumulative"
+                [gradient]="gradient"
+                [xAxis]="showXAxis"
+                [yAxis]="showYAxis"
+                [legend]="showLegend"
+                [showXAxisLabel]="showXAxisLabel"
+                [showYAxisLabel]="showYAxisLabel"
+                [xAxisLabel]="xAxisLabel"
+                [yAxisLabel]="yAxisLabel">
+                </ngx-charts-line-chart>
+            </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      <div class="col-md-5" style="text-align:center;">
+          <div class="row.text-center">
+            <h4 style="text-align:center;margin-top:50px;margin-bottom:20px">
               Processing Time
             </h4>
           </div>
@@ -112,36 +154,7 @@
 
 
         </div>
-        <div class="col-md-5" style="text-align:center;">
-            <div class="row.text-center">
-              <h4 style="text-align:center;margin-top:50px;margin-bottom:20px">
-                Positive Cases (Cumulative)
-              </h4>
-            </div>
-            <div class="row dark" style="border-radius=25px;border-radius: 15px;border: 2px solid #000000;">
-              <div class="col">
 
-              <div style="min-height:250px">
-                  <ngx-charts-line-chart
-                  [view]=""
-                  [scheme]="colorScheme"
-                  [results]="positiveCumulative"
-                  [gradient]="gradient"
-                  [xAxis]="showXAxis"
-                  [yAxis]="showYAxis"
-                  [legend]="showLegend"
-                  [showXAxisLabel]="showXAxisLabel"
-                  [showYAxisLabel]="showYAxisLabel"
-                  [xAxisLabel]="xAxisLabel"
-                  [yAxisLabel]="yAxisLabel">
-                  </ngx-charts-line-chart>
-              </div>
-              </div>
-            </div>
-
-
-
-          </div>
       </div>
 
 

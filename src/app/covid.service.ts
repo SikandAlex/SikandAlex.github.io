@@ -46,7 +46,7 @@ export class CovidDataService {
   }
 
   getPositiveCumulative() {
-    return this._http.get("http://127.0.0.1:5000/ngx-pos-cum")
+    return this._http.get("https://bu-covid19-api.herokuapp.com/ngx-pos-cum")
       .pipe(map(result => result));
   }
 
