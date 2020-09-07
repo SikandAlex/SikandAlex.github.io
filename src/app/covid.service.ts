@@ -20,10 +20,6 @@ export class CovidDataService {
       .pipe(map(result => result));
   }
 
-  getInvalid() {
-    return this._http.get("https://bu-covid19-api.herokuapp.com/ngx/Invalid")
-      .pipe(map(result => result));
-  }
 
   getTotal() {
     return this._http.get("https://bu-covid19-api.herokuapp.com/ngx/Total")

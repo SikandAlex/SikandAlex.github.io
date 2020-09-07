@@ -37,10 +37,6 @@ export class AppComponent {
       .subscribe(res => {
         this.positives = res["data"].slice(Math.max(res["data"].length - 8, 0))
       });
-    this._covid.getInvalid()
-      .subscribe(res => {
-        this.invalids = res["data"].slice(Math.max(res["data"].length - 8, 0))
-      });
     this._covid.getNegative()
       .subscribe(res => {
         this.negatives = res["data"].slice(Math.max(res["data"].length - 8, 0))
@@ -51,7 +47,6 @@ export class AppComponent {
         this.multi[0]["series"] = this.multi[0]["series"].slice(Math.max(this.multi[0]["series"].length - 8, 0))
         this.multi[1]["series"] = this.multi[1]["series"].slice(Math.max(this.multi[1]["series"].length - 8, 0))
         this.multi[2]["series"] = this.multi[2]["series"].slice(Math.max(this.multi[2]["series"].length - 8, 0))
-        this.multi[3]["series"] = this.multi[3]["series"].slice(Math.max(this.multi[3]["series"].length - 8, 0))
       });
     this._covid.getInfectionStatus()
       .subscribe(res => {
@@ -90,11 +85,11 @@ export class AppComponent {
   };
 
   colorScheme2 = {
-    domain: ["#6610F2", "#CC0000", "#E6C229", "#4CB5AE"]
+    domain: ["#6610F2", "#CC0000", "#4CB5AE"]
   }
 
   colorScheme3 = {
-    domain: ["#CC0000", "#E6C229", "#4CB5AE"]
+    domain: ["#CC0000", "#4CB5AE"]
   }
 
   //pie
