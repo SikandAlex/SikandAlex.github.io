@@ -35,18 +35,18 @@ export class AppComponent {
       });
     this._covid.getPositive()
       .subscribe(res => {
-        this.positives = res["data"].slice(Math.max(res["data"].length - 8, 0))
+        this.positives = res["data"].slice(Math.max(res["data"].length - 7, 0))
       });
     this._covid.getNegative()
       .subscribe(res => {
-        this.negatives = res["data"].slice(Math.max(res["data"].length - 8, 0))
+        this.negatives = res["data"].slice(Math.max(res["data"].length - 7, 0))
       });
     this._covid.getMulti()
       .subscribe(res => {
         this.multi = res["data"]
-        this.multi[0]["series"] = this.multi[0]["series"].slice(Math.max(this.multi[0]["series"].length - 8, 0))
-        this.multi[1]["series"] = this.multi[1]["series"].slice(Math.max(this.multi[1]["series"].length - 8, 0))
-        this.multi[2]["series"] = this.multi[2]["series"].slice(Math.max(this.multi[2]["series"].length - 8, 0))
+        this.multi[0]["series"] = this.multi[0]["series"].slice(Math.max(this.multi[0]["series"].length - 7, 0))
+        this.multi[1]["series"] = this.multi[1]["series"].slice(Math.max(this.multi[1]["series"].length - 7 , 0))
+        this.multi[2]["series"] = this.multi[2]["series"].slice(Math.max(this.multi[2]["series"].length - 7, 0))
       });
     this._covid.getInfectionStatus()
       .subscribe(res => {
@@ -54,11 +54,15 @@ export class AppComponent {
       });
     this._covid.getTime()
       .subscribe(res => {
-        this.timeData = [ {name: "Processing Time", series: res["data"]} ]
+        var temp = res["data"].slice(Math.max(res["data"].length - 7, 0))
+        console.log(temp)
+        this.timeData = [ {name: "Processing Time", series: temp} ]
       });
     this._covid.getPositiveCumulative()
       .subscribe(res => {
-        this.positiveCumulative = [ {name: "Positive Cases", series: res["data"]} ]
+        var temp = res["data"].slice(Math.max(res["data"].length - 7, 0))
+        console.log(temp)
+        this.positiveCumulative = [ {name: "Positive Cases", series: temp} ]
       });
 
   }
